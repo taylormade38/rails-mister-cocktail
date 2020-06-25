@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Add a Puptail</h1>
+  <%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Finish! 👌🏽", class: "btn btn-outline-secondary" %> <%= link_to "Nevermind, Go 🔙 to All Puptails", cocktails_path %>
+  <% end %>
+
+</div>
