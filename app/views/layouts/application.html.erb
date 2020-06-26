@@ -4,6 +4,7 @@
   <title>RailsMisterCocktail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 
   <%= csrf_meta_tags %>
@@ -14,6 +15,23 @@
 </head>
 
 <body>
-  <%= yield %>
+ <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="<%= cocktails_path %>">Floof n' Snoot <i class="fas fa-paw"></i> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+
+      <a class="nav-item nav-link active" href="<%= cocktails_path %>">All Puptails <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="<%= new_cocktail_path %>">Add a Puptail</a>
+    </div>
+  </div>
+
+</nav>
+
+
+
+<%= yield %>
 </body>
 </html>
