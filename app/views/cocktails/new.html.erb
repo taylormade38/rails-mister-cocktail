@@ -2,6 +2,7 @@
   <h1>Add a Puptail</h1>
   <%= simple_form_for(@cocktail) do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Finish! 👌🏽", class: "btn btn-outline-secondary" %> <%= link_to "Nevermind, Go 🔙 to All Puptails", root_path %>
   <% end %>
 

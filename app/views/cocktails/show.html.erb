@@ -1,6 +1,8 @@
-<div class="container">
+<div class="container-top">
   <h1><%= @cocktail.name %> / <%= link_to "Edit Puptail", edit_cocktail_path(@cocktail), class: "btn btn-outline-light" %></h1>
-
+<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
+<div class="container-bottom"></div>
   <% @cocktail.doses.each do |dose| %>
   <p> <%= dose.description %> / <%= dose.ingredient.name %> / <%= link_to  "🗑 Remove", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"}, style: "color: red"  %></p>
   <% end %>
