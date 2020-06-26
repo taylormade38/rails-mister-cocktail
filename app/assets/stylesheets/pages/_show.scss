@@ -1,3 +1,24 @@
 .container-top {
 text-align: center;
+justify-content: center;
+display: flex;
+}
+
+img {
+  width: 350px;
+  height: 300px;
+}
+
+.ingredients {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.photo {
+  text-align: center;
+  margin-top: 30px;
 }

@@ -1,18 +1,27 @@
 <div class="container-top">
-  <h1><%= @cocktail.name %> / <%= link_to "Edit Puptail", edit_cocktail_path(@cocktail), class: "btn btn-outline-light" %></h1>
+  <h1><%= @cocktail.name %> <%= link_to "✏️", edit_cocktail_path(@cocktail) %></h1>
+
+  </div>
+
+<div class="photo">
   <% if @cocktail.photo.attached? %>
-        <%= cl_image_tag @cocktail.photo.key, width: 358, height: 358, crop: :thumb %>
-        <% else %>
-        <img src="https://images.unsplash.com/photo-1568688570940-831467d18af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" class="card-img-top" alt="...">
-        <% end %>
-</div>
-<div class="container-bottom"></div>
-  <% @cocktail.doses.each do |dose| %>
-  <p> <%= dose.description %> / <%= dose.ingredient.name %> / <%= link_to  "🗑 Remove", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"}, style: "color: red"  %></p>
+    <%= cl_image_tag @cocktail.photo.key, width: 350, height: 350, crop: :fill %>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1568688570940-831467d18af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" class="rounded" alt="...">
   <% end %>
+</div>
+
+<div class="ingredients text-center">
+  <h3>Imgredients</h3>
+  <% @cocktail.doses.each do |dose| %>
+    <p> <%= dose.description %> x <%= dose.ingredient.name %>  <%= link_to  "🗑", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <% end %>
+</div>
+<div class="add_ingredient">
+  <h3>Add an Imgredient</h3>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
- <%= f.button :submit, class: "btn-outline-light" %>
-<% end %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, class: "btn-outline-light" %>
+  <% end %>
 </div>
